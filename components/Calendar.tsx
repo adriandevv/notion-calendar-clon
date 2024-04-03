@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Month } from "./Month";
 
-export const Calendar = () => {
+
+export const Calendar = ({currentMonth, isCurrentMonth}) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
@@ -15,7 +16,7 @@ export const Calendar = () => {
             </div>
           ))}
         </div>
-        <Month />
+        <Month currentMonth={currentMonth} isCurrentMonth={isCurrentMonth} />
       </section>
     </>
   );

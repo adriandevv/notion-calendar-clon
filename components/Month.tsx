@@ -1,14 +1,12 @@
 import React from "react";
 import dayjs from "dayjs";
-import { getMonth } from "@/utils/calendar";
 import { type Dayjs } from "dayjs";
-import { isCurrentDay, isCurrentMonth } from "@/utils/calendar";
+import { isCurrentDay } from "@/utils/calendar";
 
-export const Month = () => {
-  const dates = getMonth();
+export const Month = ({currentMonth ,isCurrentMonth}) => {
   const checkCurrentMonth = (date: Dayjs) => {
     let day = dayjs(date).format("dddd");
-    let styles = `border border-neutral-600  bg-gray-850 flex justify-end p-1`;
+    let styles = `border border-neutral-600  bg-gray-850 flex justify-end p-1 transition-all duration-300 ease-in-out`;
 
     if (day === "Sunday" || day === "Saturday") {
       styles += ` bg-MF`;
@@ -16,6 +14,7 @@ export const Month = () => {
     if (isCurrentDay(date) === true) {
       styles += ` bg-today`;
     }
+    
     if (isCurrentMonth(date) === false) {
       styles += " border-neutral-800 text-neutral-500";
     }
@@ -25,8 +24,8 @@ export const Month = () => {
   
   return (
     <div className="grid grid-cols-7 grid-rows-6 min-h-screen ">
-      {dates.map((day) =>
-        day.map((d, iter) => {
+      {currentMonth.map((day: any) =>
+        day.map((d:Dayjs, iter: number) => {
           return (
             <div key={iter} className={checkCurrentMonth(d)}>
               <span className=" font-bold text-xs text-center mr-1">

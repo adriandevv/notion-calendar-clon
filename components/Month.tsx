@@ -23,7 +23,7 @@ export const Month = ({currentMonth ,isCurrentMonth}) => {
   };
   
   return (
-    <div className="grid grid-cols-7 grid-rows-6 min-h-screen ">
+    <div className="grid grid-cols-7 h-full">
       {currentMonth.map((day: any) =>
         day.map((d:Dayjs, iter: number) => {
           return (

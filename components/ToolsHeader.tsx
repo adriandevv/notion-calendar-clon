@@ -28,7 +28,7 @@ const handleMonthChange = (index: number) => {
 }
 
   return (
-    <section className="flex justify-end items-center w-full p-2 ">
+    <section className=" shrink flex justify-end items-center w-full p-2 ">
       <section>
         <h1 className="text-2xl font-bold">{dayjs(new Date(dayjs().year(),monthIndex)).format("MMMM YYYY")}</h1>
       </section>

@@ -6,17 +6,17 @@ import { useGetMonth } from "./hooks/useGetMonth";
 import SideBar from "@/components/SideBar";
 import { SmallCalendar } from "@/components/SmallCalendar";
 export default function Home() {
-  const { monthIndex, setMonthIndex, currentMonth, isCurrentMonth } =
+  const { monthIndex, setMonthIndex, currentMonth, isCurrentMonth, daySelected, setDaySelected } =
     useGetMonth();
 
     return (
       <main className="min-h-screen min-w-screen flex">
-        <section className="w-96 my-28">
-        <SmallCalendar />
-        </section>
-        <section className="flex flex-col w-full relative ">
+        <div className="w-96 p-5 my-11">
+        <SmallCalendar setMonthIndex={setMonthIndex} monthIndex={monthIndex} daySelected={daySelected} setDaySelected={setDaySelected} />
+        </div>
+        <section className="flex flex-col w-full ">
           <ToolsHeader setMonthIndex={setMonthIndex} monthIndex={monthIndex} />
-          <Calendar   currentMonth={currentMonth} isCurrentMonth={isCurrentMonth} />
+          <Calendar   currentMonth={currentMonth} isCurrentMonth={isCurrentMonth} daySelected={daySelected} />
         </section>
         <SideBar />
       </main>

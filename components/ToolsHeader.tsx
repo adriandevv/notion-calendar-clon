@@ -16,7 +16,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import dayjs from "dayjs";
 
 
-export const ToolsHeader = ({monthIndex, setMonthIndex}) => {
+export const ToolsHeader = ({ monthIndex, setMonthIndex }: { monthIndex: number, setMonthIndex: (index: number) => void }) => {
 const actualMonth =() =>{
   setMonthIndex(dayjs().month());
 };
@@ -28,11 +28,11 @@ const handleMonthChange = (index: number) => {
 }
 
   return (
-    <section className=" shrink flex justify-end items-center w-full p-2 ">
+    <section className="shrink flex justify-end items-center w-full p-2 ">
       <section>
         <h1 className="text-2xl font-bold">{dayjs(new Date(dayjs().year(),monthIndex)).format("MMMM YYYY")}</h1>
       </section>
-      <div className="flex justify-evenly w-1/4">
+      <div className="flex justify-evenly">
 
         <UserAvatar />
         <DropdownMenu>

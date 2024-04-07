@@ -1,8 +1,17 @@
 "use client";
 import React, { useEffect } from "react";
 import { Month } from "./Month";
+import { type Dayjs } from "dayjs";
 
-export const Calendar = ({ currentMonth, isCurrentMonth }) => {
+export const Calendar = ({
+  currentMonth,
+  isCurrentMonth,
+  daySelected,
+}: {
+  currentMonth: Dayjs[];
+  isCurrentMonth: boolean;
+  daySelected: Dayjs;
+}) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
@@ -14,7 +23,7 @@ export const Calendar = ({ currentMonth, isCurrentMonth }) => {
           </div>
         ))}
       </div>
-      <Month currentMonth={currentMonth} isCurrentMonth={isCurrentMonth} />
+      <Month currentMonth={currentMonth} isCurrentMonth={isCurrentMonth} daySelected={daySelected} />
     </section>
   );
 };
